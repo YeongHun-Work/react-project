@@ -7,7 +7,7 @@ const SidebarNavList = [
 	{
 		component: CNavItem,
 		name: "Dashboard",
-		to: "/dashboard",
+		to: "/Dashboard",
 		icon: <CIcon icon={cilSpeedometer} customClassName="nav-icon" />,
 		badge: {
 			color: "info",
