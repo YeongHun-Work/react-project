@@ -1,14 +1,19 @@
 {
-	"name": "react-enitt",
+	"name": "react-project",
 	"version": "0.1.0",
 	"private": true,
 	"scripts": {
 		"start": "react-scripts start",
-		"build": "react-scripts build",
-		"test": "react-scripts test",
-		"eject": "react-scripts eject"
+		"build": "react-scripts build"
 	},
 	"dependencies": {
+		"@coreui/chartjs": "^3.0.0",
+		"@coreui/coreui": "^4.1.0",
+		"@coreui/icons": "^2.1.0",
+		"@coreui/icons-react": "^2.0.1",
+		"@coreui/react": "^4.1.2",
+		"@coreui/react-chartjs": "^2.0.3",
+		"@coreui/utils": "^1.3.1",
 		"@testing-library/jest-dom": "^5.16.2",
 		"@testing-library/react": "^12.1.2",
 		"@testing-library/user-event": "^13.5.0",
@@ -20,6 +25,7 @@
 		"react-flow-renderer": "^9.7.4",
 		"react-router-dom": "^6.2.1",
 		"react-scripts": "^5.0.0",
+		"simplebar-react": "^2.3.6",
 		"web-vitals": "^2.1.4"
 	},
 	"eslintConfig": {
@@ -39,5 +45,8 @@
 			"last 1 firefox version",
 			"last 1 safari version"
 		]
+	},
+	"devDependencies": {
+		"sass": "^1.49.7"
 	}
 }
