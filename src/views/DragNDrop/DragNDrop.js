@@ -28,7 +28,7 @@ const DragNDrop = () => {
 
 		if (reactFlowInstance) {
 			const type = event.dataTransfer.getData("application/reactflow");
-			const position = reactFlowInstance.project({ x: event.clientX, y: event.clientY - 40 });
+			const position = reactFlowInstance.project({ x: event.clientX, y: event.clientY });
 			const newNode = {
 				id: getId(),
 				type,
@@ -41,10 +41,10 @@ const DragNDrop = () => {
 	};
 
 	return (
-		<div className="DragNDrop">
+		<div className="dndflow">
 			<ReactFlowProvider>
 				<Sidebar />
-				<div className="reactflow-wrapper">
+				<div className="reactflow-wrapper" style={{height:800}}>
 					<ReactFlow elements={elements} onConnect={onConnect} onElementsRemove={onElementsRemove} onLoad={onLoad} onDrop={onDrop} onDragOver={onDragOver}>
 						<Controls />
 					</ReactFlow>

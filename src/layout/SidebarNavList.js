@@ -5,18 +5,13 @@ import { CNavGroup, CNavItem, CNavTitle } from "@coreui/react";
 
 const SidebarNavList = [
 	{
-		component: CNavItem,
-		name: "Dashboard",
-		to: "/Dashboard",
-		icon: <CIcon icon={cilSpeedometer} customClassName="nav-icon" />,
-		badge: {
-			color: "info",
-		},
+		component: CNavTitle,
+		name: "Dev",
 	},
 	{
 		component: CNavItem,
 		name: "DragNDrop",
-		to: "/DragNDrop",
+		to: "/drag-n-drop",
 		icon: <CIcon icon={cilSpeedometer} customClassName="nav-icon" />,
 		badge: {
 			color: "info",
@@ -25,16 +20,16 @@ const SidebarNavList = [
 	{
 		component: CNavItem,
 		name: "Layouting",
-		to: "/Layouting",
+		to: "/layouting",
 		icon: <CIcon icon={cilSpeedometer} customClassName="nav-icon" />,
 		badge: {
 			color: "info",
 		},
 	},
-];
-
-/*
-const SidebarNavList = [
+	{
+		component: CNavTitle,
+		name: "CoreUI",
+	},
 	{
 		component: CNavItem,
 		name: "Dashboard",
@@ -314,6 +309,5 @@ const SidebarNavList = [
 		],
 	},
 ];
-*/
 
 export default SidebarNavList;

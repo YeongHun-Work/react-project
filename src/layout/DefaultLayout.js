@@ -10,7 +10,7 @@ const DefaultLayout = () => {
 				<div className="body flex-grow-1 px-3">
 					<Content />
 				</div>
-				{/* <Footer /> */}
+				<Footer />
 			</div>
 		</div>
 	);

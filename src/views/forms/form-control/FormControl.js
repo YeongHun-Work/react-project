@@ -11,7 +11,7 @@ import {
   CFormTextarea,
   CRow,
 } from '@coreui/react'
-import { DocsCallout, DocsExample } from 'src/components'
+import { DocsCallout, DocsExample } from "src/layout";
 
 const FormControl = () => {
   return (
@@ -141,7 +141,7 @@ const FormControl = () => {
               as plain text, use the <code>plainText</code> boolean property to remove the default
               form field styling and preserve the correct margin and padding.
             </p>
-            <DocsExample href="components/accordion">
+            <DocsExample href="src/views/accordion">
               <CRow className="mb-3">
                 <CFormLabel htmlFor="staticEmail" className="col-sm-2 col-form-label">
                   Email
@@ -165,7 +165,7 @@ const FormControl = () => {
                 </div>
               </CRow>
             </DocsExample>
-            <DocsExample href="components/accordion">
+            <DocsExample href="src/views/accordion">
               <CForm className="row g-3">
                 <div className="col-auto">
                   <CFormLabel htmlFor="staticEmail2" className="visually-hidden">

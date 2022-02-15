@@ -12,6 +12,7 @@ import { logo } from "src/assets/brand/logo";
 const Header = () => {
 	const dispatch = useDispatch();
 	const sidebarShow = useSelector((state) => state.sidebarShow);
+	// const [ sidebarShow ]
 
 	return (
 		<CHeader position="sticky" className="mb-4">
@@ -26,7 +27,7 @@ const Header = () => {
 				</CHeaderBrand>
 
 				<CHeaderNav className="d-none d-md-flex me-auto">
-					<CNavItem>
+					{/* <CNavItem>
 						<CNavLink to="/dashboard" component={NavLink} activeClassName="active">
 							Dashboard
 						</CNavLink>
@@ -36,10 +37,10 @@ const Header = () => {
 					</CNavItem>
 					<CNavItem>
 						<CNavLink href="#">Settings</CNavLink>
-					</CNavItem>
+					</CNavItem> */}
 				</CHeaderNav>
 
-				<CHeaderNav className="">
+				<CHeaderNav>
 					<CNavItem>
 						<CNavLink href="#">
 							<CIcon icon={cilBell} size="lg" />

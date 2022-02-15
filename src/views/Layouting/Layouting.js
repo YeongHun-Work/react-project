@@ -47,7 +47,7 @@ const Layouting = () => {
 	};
 
 	return (
-		<div className="layoutflow" style={{ height: 1000 }}>
+		<div className="layoutflow" style={{ height: 800 }}>
 			<ReactFlowProvider>
 				<ReactFlow
 					elements={elements}
@@ -58,19 +58,14 @@ const Layouting = () => {
 						onLayout("LR");
 					}}
 				>
-					<Controls>
-						<ControlButton onClick={() => console.log("action")}>
-						</ControlButton>
-						<ControlButton onClick={() => console.log("another action")}>
-						</ControlButton>
-					</Controls>
+					<Controls/>
 				</ReactFlow>
-				{/* <div className="controls">
+				<div className="controls">
 					<button onClick={() => onLayout("TB")} style={{ marginRight: 10 }}>
 						vertical layout
 					</button>
 					<button onClick={() => onLayout("LR")}>horizontal layout</button>
-				</div> */}
+				</div>
 			</ReactFlowProvider>
 		</div>
 	);
