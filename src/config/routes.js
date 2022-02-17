@@ -3,8 +3,9 @@ import React from "react";
 // import DragNDrop from "src/views/DragNDrop/DragNDrop";
 // import Layouting from "src/views/Layouting/Layouting";
 
-const DragNDrop = React.lazy(() => import("src/views/dragndrop/DragNDrop"));
-const Layouting = React.lazy(() => import("src/views/layouting/Layouting"));
+const DragNDrop = React.lazy(() => import("src/views/flow/dragndrop/DragNDrop"));
+const Layouting = React.lazy(() => import("src/views/flow/layouting/Layouting"));
+const CustomNode = React.lazy(() => import("src/views/flow/customnode/CustomNode"));
 
 // Demo
 const Dashboard = React.lazy(() => import("src/views/dashboard/Dashboard"));
@@ -61,6 +62,7 @@ const routes = [
 	{ path: "/", exact: true, name: "Home" },
 	{ path: "/drag-n-drop", name: "DragNDrop", component: DragNDrop },
 	{ path: "/layouting", name: "Layouting", component: Layouting },
+	{ path: "/CustomNode", name: "CustomNode", component: CustomNode },
 
 	{ path: "/dashboard", name: "Dashboard", component: Dashboard },
 	{ path: "/theme", name: "Theme", component: Colors, exact: true },

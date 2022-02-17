@@ -15,6 +15,7 @@ const nodeExtent = [
 ];
 
 const Layouting = () => {
+	const [reactFlowInstance, setReactFlowInstance] = useState();
 	const [elements, setElements] = useState(initElements);
 	const onConnect = (params) => setElements((els) => addEdge(params, els));
 	const onElementsRemove = (elementsToRemove) => setElements((els) => removeElements(elementsToRemove, els));
@@ -47,23 +48,20 @@ const Layouting = () => {
 	};
 
 	return (
-		<div className="layoutflow" style={{ height: 800 }}>
+		<div className="layoutflow" style={{ height: 850 }}>
 			<ReactFlowProvider>
 				<ReactFlow
 					elements={elements}
-					onConnect={onConnect}
 					onElementsRemove={onElementsRemove}
+					onConnect={onConnect}
+					snapToGrid={true}
 					nodeExtent={nodeExtent}
-					onLoad={() => {
-						onLayout("LR");
-					}}
+					onLoad={() => { onLayout("LR"); }}
 				>
 					<Controls/>
 				</ReactFlow>
 				<div className="controls">
-					<button onClick={() => onLayout("TB")} style={{ marginRight: 10 }}>
-						vertical layout
-					</button>
+					<button onClick={() => onLayout("TB")} style={{ marginRight: 10 }}>vertical layout</button>
 					<button onClick={() => onLayout("LR")}>horizontal layout</button>
 				</div>
 			</ReactFlowProvider>

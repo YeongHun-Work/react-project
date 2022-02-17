@@ -18,7 +18,7 @@ import navigation from "./SidebarNavList";
 import { logoNegative } from "src/assets/brand/logo-negative";
 import { sygnet } from "src/assets/brand/sygnet";
 
-import logo from "src/assets/enitt-logo-white.png";
+import logo from "src/assets/logo/enitt-logo-white.png";
 
 const Sidebar = () => {
 	const dispatch = useDispatch();

@@ -27,6 +27,15 @@ const SidebarNavList = [
 		},
 	},
 	{
+		component: CNavItem,
+		name: "CustomNode",
+		to: "/CustomNode",
+		icon: <CIcon icon={cilSpeedometer} customClassName="nav-icon" />,
+		badge: {
+			color: "info",
+		},
+	},
+	{
 		component: CNavTitle,
 		name: "CoreUI",
 	},
