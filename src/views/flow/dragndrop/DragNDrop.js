@@ -6,12 +6,18 @@ import $ from "jquery";
 
 import Sidebar from "./Sidebar";
 import Provider from "./Provider";
+import NodeTypes from "../nodetype/NodeTypes";
 
 import "./DragNDrop.css";
 
 const nodeExtent = [
 	[0, 0],
 	[100, 100],
+];
+
+const translateExtent = [
+	[0, 0],
+	[100, 100]
 ];
 
 const initialElements = [{ id: "1", type: "input", data: { label: "input node" }, position: { x: 10, y: 10 } }];
@@ -29,7 +35,7 @@ const DragNDrop = () => {
 	const [elements, setElements] = useState(initialElements);
 
 	// const onConnect = (params) => setElements((els) => addEdge(params, els));
-	const onConnect = useCallback((params) => setElements((els) => addEdge({ ...params, animated: true }, els)), []);
+	const onConnect = useCallback((params) => setElements((els) => addEdge({ ...params, type: "smoothstep", animated: true }, els)), []);
 	const onElementsRemove = (elementsToRemove) => setElements((els) => removeElements(elementsToRemove, els));
 	const onLoad = (_reactFlowInstance) => {
 		setReactFlowInstance(_reactFlowInstance);
@@ -70,6 +76,7 @@ const DragNDrop = () => {
 						nodeExtent={nodeExtent}
 						elements={elements}
 						onElementsRemove={onElementsRemove}
+						nodeTypes={NodeTypes}
 						onConnect={onConnect}
 						onLoad={onLoad}
 						onDrop={onDrop}

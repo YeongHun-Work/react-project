@@ -16,16 +16,20 @@ const initialElements = [
 const CustomNode = () => {
 	const [elements, setElements] = useState(initialElements);
 	// const onConnect = (params) => setElements((els) => addEdge(params, els));
-	const onConnect = useCallback((params) => setElements((els) => addEdge({ ...params, type: "step", animated: true, arrowHeadType: "arrow" }, els)), []);
+	const onConnect = useCallback((params) => setElements((els) => addEdge({ ...params, type: "smoothstep", animated: true, arrowHeadType: "arrow" }, els)), []);
 
 	return (
 		<div name="test" style={{ height: "400px", width: "400px" }}>
 			<div style={{ height: "70vh", width: "70vw" }}>
-				<ReactFlow elements={elements} nodeTypes={nodeTypes} onConnect={onConnect}>
+				<ReactFlow
+					elements={elements}
+					nodeTypes={nodeTypes}
+					onConnect={onConnect}>
 					<Controls />
 				</ReactFlow>
 			</div>
 		</div>
 	);
 };
+
 export default CustomNode;

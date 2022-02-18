@@ -3,13 +3,8 @@ import Image from "react-bootstrap/Image";
 import ReactFlow, { Handle, addEdge, Position, Controls } from "react-flow-renderer";
 import { CAvatar } from "@coreui/react";
 
-import nodeCompressor from "./node/compressor";
-import nodeValve from "./node/valve";
-
-import compressor from "src/assets/icon/icons-compressor.png";
-import value01 from "src/assets/icon/icon-valve-01.png";
-import value02 from "src/assets/icon/icon-valve-02.png";
-import fire from "src/assets/gif/flame-128.gif";
+import nodeCompressor from "../nodetype/nodes/Compressor";
+import nodeValve from "../nodetype/nodes/Valve";
 
 import "./CustomNode.scss";
 
