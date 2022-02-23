@@ -9,8 +9,8 @@ const initialElements = [
 	{ id: "1", type: "Compressor", data: { text: "compressor 1" }, position: { x: 100, y: 100 } },
 	{ id: "5", type: "Valve", data: { text: "valve" }, position: { x: 100, y: 100 } },
 	{ id: "2", type: "crazy", data: { text: "A custom node", column: "test" }, position: { x: 150, y: 150 } },
-	{ id: "3", type: "compressorType02", data: { text: "compressor 2" }, position: { x: 200, y: 200 } },
-	{ id: "4", type: "input", data: { label: "input", text: "test" }, position: { x: 120, y: 120 } },
+	{ id: "3", type: "compressorType02", data: { text: "compressor 2" }, position: { x: 200, y: 200, opacity: 110 } },
+	{ id: "4", type: "input", data: { label: "input", text: "test" }, position: { x: 120, y: 120, opacity: 100 } },
 ];
 
 const CustomNode = () => {

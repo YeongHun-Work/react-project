@@ -3,7 +3,7 @@ import { Content, Sidebar, Footer, Header } from "./index";
 
 const DefaultLayout = () => {
 	return (
-		<div>
+		<div className="nodrag">
 			<Sidebar />
 			<div className="wrapper d-flex flex-column min-vh-100 bg-light">
 				<Header />

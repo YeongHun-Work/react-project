@@ -1,26 +1,31 @@
 import React, { useState, useCallback } from "react";
-import ReactFlow, { ReactFlowProvider, addEdge, removeElements, Controls } from "react-flow-renderer";
+import ReactFlow, { ReactFlowProvider, addEdge, removeElements, Controls, updateEdge } from "react-flow-renderer";
 import { Background, MiniMap } from "react-flow-renderer";
+import ControlBtns from "./ControlBtns";
 import ConnectionLine from "./ConnectionLine";
 import $ from "jquery";
 
 import Sidebar from "./Sidebar";
 import Provider from "./Provider";
-import NodeTypes from "../nodetype/NodeTypes";
+import { Types } from "../nodetype/NodeInfo";
 
 import "./DragNDrop.css";
 
+const initBgColor = "#393939";
+
 const nodeExtent = [
 	[0, 0],
-	[100, 100],
+	[1000, 1000],
 ];
 
 const translateExtent = [
 	[0, 0],
-	[100, 100]
+	[100, 100],
 ];
 
-const initialElements = [{ id: "1", type: "input", data: { label: "input node" }, position: { x: 10, y: 10 } }];
+const initialElements = [
+	// { id: "1", type: "input", data: { label: "input node" }, position: { x: 10, y: 10 } }
+];
 
 const onDragOver = (event) => {
 	event.preventDefault();
@@ -28,14 +33,16 @@ const onDragOver = (event) => {
 };
 
 let id = 0;
-const getId = () => `dndnode_${id++}`;
+const getId = () => `node_${id++}`;
 
 const DragNDrop = () => {
+	const [rfInstance, setRfInstance] = useState();
 	const [reactFlowInstance, setReactFlowInstance] = useState();
 	const [elements, setElements] = useState(initialElements);
 
 	// const onConnect = (params) => setElements((els) => addEdge(params, els));
-	const onConnect = useCallback((params) => setElements((els) => addEdge({ ...params, type: "smoothstep", animated: true }, els)), []);
+	const onConnect = useCallback((params) => setElements((els) => addEdge({ ...params, type: "smoothstep", animated: true, style: { stroke: "#FFF", strokeWidth: 5 } }, els)), []);
+	const onEdgeUpdate = (oldEdge, newConnection) => setElements((els) => updateEdge(oldEdge, newConnection, els));
 	const onElementsRemove = (elementsToRemove) => setElements((els) => removeElements(elementsToRemove, els));
 	const onLoad = (_reactFlowInstance) => {
 		setReactFlowInstance(_reactFlowInstance);
@@ -46,20 +53,23 @@ const DragNDrop = () => {
 		event.preventDefault();
 
 		if (reactFlowInstance) {
-			const type = event.dataTransfer.getData("application/reactflow");
+			const type = event.dataTransfer.getData("node/flow");
+			const data = event.dataTransfer.getData("node/data");
 			// const position = reactFlowInstance.project({ x: event.clientX, y: event.clientY });
 			const position = reactFlowInstance.project({ x: event.clientX - 465, y: event.clientY - 145 });
 
-			// console.log("target offset x: " + $(event.target.elements).offsetWidth + ", y:" + $(event.target.elements).offsetHeight);
+			// console.log("target offset x: " + $(event.target.elements).offsetWidth + ", y:" + 	$(event.target.elements).offsetHeight);
 			// console.log("clinet x: " + event.clientX + ", clinet y: " + event.clientY);
 			// console.log("screen x: " + event.screenX + ", screen y: " + event.screenY);
 
 			const newNode = {
-				id: getId(),
+				id: `node_${id++}_${type}`,
 				type,
 				position,
-				data: { label: `${type} node` },
+				data,
 			};
+
+			if(type === undefined || type === '') { return; }
 
 			setElements((es) => es.concat(newNode));
 		}
@@ -76,31 +86,20 @@ const DragNDrop = () => {
 						nodeExtent={nodeExtent}
 						elements={elements}
 						onElementsRemove={onElementsRemove}
-						nodeTypes={NodeTypes}
+						nodeTypes={Types}
 						onConnect={onConnect}
+						onEdgeUpdate={onEdgeUpdate}
 						onLoad={onLoad}
 						onDrop={onDrop}
 						onDragOver={onDragOver}
 						zoomOnScroll={zoomOnScroll}
+						style={{ background: initBgColor }}
 						// connectionLineComponent={ConnectionLine}
 					>
 						<Background variant="dots" gap={10} size={0.4} />
 						<Controls />
-						<MiniMap
-							nodeColor={(node) => {
-								switch (node.type) {
-									case "input":
-										return "#0041d0";
-									case "default":
-										return "#1a192b";
-									case "output":
-										return "#ff0072";
-									default:
-										return "#eee";
-								}
-							}}
-							nodeStrokeWidth={3}
-						/>
+						{/* <ControlBtns rfInstance={rfInstance}/> */}
+						<MiniMap />
 					</ReactFlow>
 				</div>
 				<Provider />

@@ -3,7 +3,6 @@ import Image from "react-bootstrap/Image";
 import ReactFlow, { Handle, addEdge, Position, Controls } from "react-flow-renderer";
 import { CAvatar } from "@coreui/react";
 
-import nodeCompressor from "../nodetype/nodes/Compressor";
 import nodeValve from "../nodetype/nodes/Valve";
 
 import "./CustomNode.scss";
@@ -46,8 +45,6 @@ const CustomNodeComponentTwo = ({ data }) => {
 };
 
 const nodeTypes = {
-	Compressor: nodeCompressor,
-	Valve: nodeValve,
 	compressorType02: CustomNodeCompressorType02,
 	crazy: CustomNodeComponentTwo,
 };
