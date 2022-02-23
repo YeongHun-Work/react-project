@@ -99,7 +99,7 @@ const DragNDrop = () => {
 						<Background variant="dots" gap={10} size={0.4} />
 						<Controls />
 						{/* <ControlBtns rfInstance={rfInstance}/> */}
-						<MiniMap />
+						{/* <MiniMap /> */}
 					</ReactFlow>
 				</div>
 				<Provider />
